@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <%- include('./partial/header.ejs') %>
+    <%- include('./partial/contant.ejs') %>
+    <section class="all-drama">
+        <h2 class="h2list">My List</h2>
+        <div class="d-flex flex-wrap">
+            <% data.map((val) => { %>
+                <div class="movie-card mx-3 mt-4">
+                    <div class="content-card">
+                        <img src="<%= val.image %>" alt="image" width="100px">
+                        <span class="shadow"></span>
+                        <div class="content">
+                            <h2><%= val.title %></h2>
+                            <p><%= val.info %></p>
+                            <b><%= val.date %></b>
+                            <div class="stars"><%= val.star %></div>
+                            <div class="hex-tag">
+                                <div class="tag"><b>Action</b></div>
+                                <div class="tag"><b>Romantic</b></div>
+                                <div class="tag"><b>Family</b></div>
+                            </div>
+                            <td class="button">
+                                <a href="/deleteData/<%= val._id %>" class="del">Delete</a>
+                                <a href="/editData/<%= val._id %>" class="edit">Edit</a>
+                            </td>
+                            <i class="fa fa-angle-up"></i>
+                        </div>
+                    </div>
+                    <div class="watch-card">
+                        <button>Watch Now</button>
+                        <h1>fdfff</h1>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+</body>
+</html>
